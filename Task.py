@@ -1,5 +1,6 @@
 import requests
 from setup import *
+from airtablehandler import *
 
 def dotask():
     ToCheckIfAnyBdayToday()
