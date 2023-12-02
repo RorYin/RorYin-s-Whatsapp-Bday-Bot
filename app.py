@@ -2,7 +2,7 @@ import os
 from flask.templating import render_template_string,render_template
 import requests
 from flask import Flask,jsonify,request,Response
-
+from airtablehandler import *
 from greenapiwrapper import *
 
 app = Flask(__name__)
@@ -33,6 +33,13 @@ def todosendmsg():
         return response.json()
     except:
         return response
+    
+def tocheckbday():
+    try:
+        ToCheckIfAnyBdayToday()
+        return "Checked"
+    except Exception as e:
+        return f"Something went wrong: {e}"
 
 
 if __name__ == '__main__':
