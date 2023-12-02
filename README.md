@@ -39,7 +39,7 @@
 
 > Here is how to your airtable base and table should look like:
 > 
-![AirtableBase Example]([https://raw.githubusercontent.com/RorYin/BirthdayReminderTgBot/main/AirtableBase.png](https://telegra.ph/file/df894d1f2ec224c1f83e0.png))
+![AirtableBase Example](https://telegra.ph/file/df894d1f2ec224c1f83e0.png)
 
 # Tips
 
