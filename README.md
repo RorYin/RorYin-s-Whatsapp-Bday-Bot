@@ -35,7 +35,7 @@
 	+ Create a new TG Bot using BotFather, and copy the bot token and paste it.
 	+ Create a Airtable Base, and a table, with fields as "Name", "bday", "chatid".
 	+ Get your Airtable access token, table id, base id and table name.
-+ Choose your fav platform to deploy, recommended is pythonanywhere as it has a option to create tasks. Else you can find a way to run the ScheduledTask.py at particular time.
++ Choose your fav platform to deploy, recommended is pythonanywhere as it has a option to create tasks. Else you can find a way to run the Task.py at particular time.
 + Update your ENV variables once u deploy it, and restart the app.
 
 # Airtable Guide
