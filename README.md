@@ -14,6 +14,8 @@
 + Its completely free of cost, hosting might cost you a minimum sum.
 + If interested you can try deploying your own using the open source code
 + currently deployed on render
++ WhatsApp API from GreenAPI is use in this bot. (A great alternative to many paid APIs available)
++ Note: The free version allows 3 chats and 1000 messages per month, which is usually sufficient for a birthday bot for group with participants of 200+.
 
 # ReleaseNote
 
@@ -28,6 +30,7 @@
 # Setup for deploying your own
 
 + Fork the repo (better to clone the V1.0 instead of the main branch)
++ Get your api keys from GreenAPI ([green-api.com](https://green-api.com/))
 + Edit the Setup.py
 	+ Create a new TG Bot using BotFather, and copy the bot token and paste it.
 	+ Create a Airtable Base, and a table, with fields as "Name", "bday", "chatid".
@@ -43,12 +46,15 @@
 
 # Tips
 
-+ Deploy on pythonanywhere and set the task for Task.py to whatever time u want the bot to check and send update, currently it is set to 12AM for my deployed bot.
++ Deploy on pythonanywhere and set the task for Task.py to whatever time u want the bot to check and send update.
 + Use paid version of pythonanywhere, since there is a limitation in free version.
++ To run the bot for free, deploy the bot on render, create a new TG group and add the TG bot, and give that group id as DevTGId in setup.py and later using telegram app schedule messages, just schedule "/start@yourbot" to your desiered time.
++ This is all becuase pythonanywhere doesn't allow requests for other public apis other than few that is specified on thier site for the free dev plan.
++ If you are using paid version of pythonanywhere, you need not worry about anything, just set the "Tasks" tab to run "Task.py" on desired time.
 
 <br>
 
-
+Any queries regarding deployment, contact @roryin on TG
 
 <br><br>
 _Star the repo incase if you liked it...! 😊_
