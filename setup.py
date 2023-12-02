@@ -20,3 +20,6 @@ InstanceId = "7103881919"
 
 #greenapi api token instance
 ApiTokenInstance = "fc540920e4444202beb809deea4e0c32489714616ed646cda5"
+
+#deployed webapp url
+webappurl = "https://roryinswhatsappbdaybotwebapp.onrender.com/task"
