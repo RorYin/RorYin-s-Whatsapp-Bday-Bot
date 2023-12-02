@@ -34,6 +34,7 @@ def todosendmsg():
     except:
         return response
     
+@app.route('/task',methods=['POST','GET'])
 def tocheckbday():
     try:
         ToCheckIfAnyBdayToday()
