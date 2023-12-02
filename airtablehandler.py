@@ -21,7 +21,7 @@ def ToCheckIfAnyBdayToday():
     data = Response['records']
     for i in data:
         
-        currentdate = datetime.now(pytz.timezone('Asia/Calcutta')).astimezone().strftime("%d-%m")
+        currentdate = datetime.now(pytz.timezone('Asia/Calcutta')).strftime("%d-%m")
         if(currentdate == i['fields']['bday']):
             response = SendImgUrl(i['fields']['chatid'],i['fields']['url'],f"Happy Birthday {i['fields']['Name']} 🎉")
             response = response.json()
