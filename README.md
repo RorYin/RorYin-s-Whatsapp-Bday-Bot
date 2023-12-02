@@ -2,7 +2,7 @@
 
  ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white)![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Airtable](https://img.shields.io/badge/Airtable-18BFFF?style=for-the-badge&logo=Airtable&logoColor=white)![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white) 
 
-![](https://img.shields.io/github/stars/RorYin/RorYin-s-Whatsapp-Bday-Bot.svg) ![](https://img.shields.io/github/forks/RorYin/RorYin-s-Whatsapp-Bday-Bot.svg) ![](https://img.shields.io/github/tags/RorYin/RorYin-s-Whatsapp-Bday-Bot.svg) ![](https://img.shields.io/github/release/RorYin/RorYin-s-Whatsapp-Bday-Bot.svg) ![](https://img.shields.io/github/issues/RorYin/RorYin-s-Whatsapp-Bday-Bott.svg) 
+![](https://img.shields.io/github/stars/RorYin/RorYin-s-Whatsapp-Bday-Bot.svg) ![](https://img.shields.io/github/forks/RorYin/RorYin-s-Whatsapp-Bday-Bot.svg) ![](https://img.shields.io/github/tags/RorYin/RorYin-s-Whatsapp-Bday-Bot.svg) ![](https://img.shields.io/github/release/RorYin/RorYin-s-Whatsapp-Bday-Bot.svg) ![](https://img.shields.io/github/issues/RorYin/RorYin-s-Whatsapp-Bday-Bot.svg) 
 
 
 
