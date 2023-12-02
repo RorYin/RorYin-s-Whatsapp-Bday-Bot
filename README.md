@@ -10,11 +10,11 @@
 
 # Features
 + Can post birthday wishes on WhatsApp group chat.
-+ Fun to use
++ Fun to use.
 + Its completely free of cost, hosting might cost you a minimum sum.
-+ If interested you can try deploying your own using the open source code
-+ currently deployed on render
-+ WhatsApp API from GreenAPI is use in this bot. (A great alternative to many paid APIs available)
++ If interested you can try deploying your own using the open source code.
++ Currently deployed on render.
++ WhatsApp API from GreenAPI is use in this bot. (A great alternative to many paid APIs available).
 + Note: The free version allows 3 chats and 1000 messages per month, which is usually sufficient for a birthday bot for group with participants of 200+.
 
 # ReleaseNote
