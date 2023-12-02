@@ -1,11 +1,13 @@
 from setup import *
 import requests
 import time
-import datetime
+from datetime import datetime
 from greenapiwrapper import *
 import random
 import json
 from TGbotHandler import logger
+import pytz
+
 
 bot=logger(TgBotToken)
 
@@ -15,13 +17,13 @@ def ToCheckIfAnyBdayToday():
     headers = {
         'Authorization': f'Bearer {AirtableToken}',
     }
-    Response = requests.get(f"https://api.airtable.com/v0/{BaseId}/{TableId}?fields%5B%5D=Name&fields%5B%5D=bday&fields=chatid",headers=headers).json()
+    Response = requests.get(f"https://api.airtable.com/v0/{BaseId}/{TableId}?fields%5B%5D=Name&fields%5B%5D=bday&fields=chatid&fields=url",headers=headers).json()
     data = Response['records']
     for i in data:
-        dt_today = datetime.datetime.today()
-        currentdate = dt_India = dt_today.astimezone().strftime("%d-%m")
+        
+        currentdate = datetime.now(pytz.timezone('Asia/Calcutta')).astimezone().strftime("%d-%m")
         if(currentdate == i['fields']['bday']):
-            response = SendImgUrl(i['fields']['chatid'],random.choice(imgurls),f"Happy Birthday {i['fields']['Name']} 🎉")
+            response = SendImgUrl(i['fields']['chatid'],i['fields']['url'],f"Happy Birthday {i['fields']['Name']} 🎉")
             response = response.json()
             # print(response['idMessage'])
             try:
@@ -31,4 +33,3 @@ def ToCheckIfAnyBdayToday():
                     bot.sendMsgTo(devTGid,f"Birthday wish sent was failed to sent for {i['fields']['Name']}","","")
             except:
                 bot.sendMsgTo(devTGid,f"Birthday wish sent was failed to sent for {i['fields']['Name']}","","")
-
