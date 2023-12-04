@@ -47,10 +47,8 @@
 # Tips
 
 + Deploy on pythonanywhere and set the task for Task.py to whatever time u want the bot to check and send update.
-+ Use paid version of pythonanywhere, since there is a limitation in free version.
-+ To run the bot for free, deploy the bot on render, create a new TG group and add the TG bot, and give that group id as DevTGId in setup.py and later using telegram app schedule messages, just schedule "/start@yourbot" to your desiered time.
-+ This is all becuase pythonanywhere doesn't allow requests for other public apis other than few that is specified on thier site for the free dev plan.
-+ If you are using paid version of pythonanywhere, you need not worry about anything, just set the "Tasks" tab to run "Task.py" on desired time.
++ Use paid version of pythonanywhere to set more number of tasks if needed.
+
 
 <br>
 
