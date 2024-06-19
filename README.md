@@ -38,7 +38,7 @@
 + Choose your fav platform to deploy, recommended is pythonanywhere as it has a option to create tasks. Else you can find a way to run the Task.py at particular time.
 + Update your ENV variables once u deploy it, and restart the app.
 
-#The UI:
+# The UI:
 
 ![Login](https://raw.githubusercontent.com/RorYin/RorYin-s-Whatsapp-Bday-Bot/main/Screenshots/Login.png)
 ![LoginWrongPassword](https://raw.githubusercontent.com/RorYin/RorYin-s-Whatsapp-Bday-Bot/main/Screenshots/Login2.png)
