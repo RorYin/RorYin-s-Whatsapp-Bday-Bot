@@ -19,7 +19,7 @@
 
 # ReleaseNote
 
-> Currently V1.0 bot is deployed on render, can be deployed on pythonanywhere / heroku too.
+> Currently V2.0 bot is deployed on pythonanywhere, can be deployed on render / heroku, or any other platform supporting flask applications.
 
 
 # ToDo for next release
@@ -33,16 +33,20 @@
 + Get your api keys from GreenAPI ([green-api.com](https://green-api.com/))
 + Edit the Setup.py
 	+ Create a new TG Bot using BotFather, and copy the bot token and paste it.
-	+ Create a Airtable Base, and a table, with fields as "Name", "bday", "chatid".
-	+ Get your Airtable access token, table id, base id and table name.
+	+ Create a data.json with sructure as shown below.
+ + ![Data.json](https://raw.githubusercontent.com/RorYin/RorYin-s-Whatsapp-Bday-Bot/main/Screenshots/datajSON.png)
 + Choose your fav platform to deploy, recommended is pythonanywhere as it has a option to create tasks. Else you can find a way to run the Task.py at particular time.
 + Update your ENV variables once u deploy it, and restart the app.
 
-# Airtable Guide
+#The UI:
 
-> Here is how to your airtable base and table should look like:
-> 
-![AirtableBase Example](https://telegra.ph/file/df894d1f2ec224c1f83e0.png)
+![Login](https://raw.githubusercontent.com/RorYin/RorYin-s-Whatsapp-Bday-Bot/main/Screenshots/Login.png)
+![LoginWrongPassword](https://raw.githubusercontent.com/RorYin/RorYin-s-Whatsapp-Bday-Bot/main/Screenshots/Login2.png)
+![Home](https://raw.githubusercontent.com/RorYin/RorYin-s-Whatsapp-Bday-Bot/main/Screenshots/Home.png)
+![AddBirthday](https://raw.githubusercontent.com/RorYin/RorYin-s-Whatsapp-Bday-Bot/main/Screenshots/AddBirthdays.png)
+![ViewBirthday](https://raw.githubusercontent.com/RorYin/RorYin-s-Whatsapp-Bday-Bot/main/Screenshots/ViewBirthdays.png)
+![WishSent](https://raw.githubusercontent.com/RorYin/RorYin-s-Whatsapp-Bday-Bot/main/Screenshots/BdayWishSent.png)
+![NoBirthdayToday](https://raw.githubusercontent.com/RorYin/RorYin-s-Whatsapp-Bday-Bot/main/Screenshots/NoBirthdaysToday.png)
 
 # Tips
 
