@@ -1,0 +1,20 @@
+[
+    {
+        "name": "name 1",
+        "bday": "2001-04-20",
+        "image_url": "xyz.png",
+        "chatid": "defaultid"
+    },
+    {
+        "name": "name 2",
+        "bday": "2001-04-21",
+        "image_url": "xyz.png",
+        "chatid": "defaultid"
+    },
+    {
+        "name": "name 3",
+        "bday": "2001-04-22",
+        "image_url": "xyz.png",
+        "chatid": "defaultid"
+    }
+]

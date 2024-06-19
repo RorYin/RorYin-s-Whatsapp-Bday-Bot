@@ -1,27 +1,27 @@
-import os
+from cryptography.fernet import Fernet
 
-# key = Fernet.generate_key()
-key = "Get a key by running above line, and use same here"
+key = Fernet.generate_key()
 
-airtablekey = os.environ.get('airtablekey') #"Airtable api key for ur account" #Depreciating on 1st Feb 2024,so better to use their new access token
+DATA_FILE = 'data.json'
 
-TgBotToken = os.environ.get('TgBotToken')
+TgBotToken = "5851812153:AAFqyJ5lgaxIrWJhC6HDCKIGzXN_ojncgVs"
 
-devTGid = os.environ.get('devTGid')  #will be used for later implementation of error log in Telegram group as telegram apis are very reliable.
+devTGid = "-4062855842"  #will be used for later implementation of error log in Telegram group as telegram apis are very reliable.
 
-BaseId = os.environ.get('BaseId') #Change accordingly
+webapppassword = "roryin"
+#webapp password
 
-TableId = os.environ.get('TableId') #Change accordingly
+display_image_url = "https://telegra.ph/file/c3f382697478e3e9f1887.png"
+# url for the image that will be sent along with the text
 
-TableName = os.environ.get('TableName')  #Change accordingly
-
-AirtableToken = os.environ.get('AirtableToken') #Change accordingly
+default_chatid =   "919986016721-1453656300@g.us"  #"919128830436-1624964186@g.us"
+# Whatsapp group chatid where bot should send posts
 
 # greenapi instance id
-InstanceId = os.environ.get('InstanceId') #Change accordingly
+InstanceId = "7103881557" #"7103881919"
 
 #greenapi api token instance
-ApiTokenInstance = os.environ.get('ApiTokenInstance') #Change accordingly
+ApiTokenInstance = "e854ca40a03448048d9438650b239487360317b0c0524bf09e" #"fc540920e4444202beb809deea4e0c32489714616ed646cda5"
 
-#deployed webapp url
-webappurl = os.environ.get('webappurl') #Change accordingly
+
+

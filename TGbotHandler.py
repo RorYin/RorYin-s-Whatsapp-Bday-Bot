@@ -1,5 +1,5 @@
 import requests
-from werkzeug.wrappers import response
+
 
 
 headers = {'User-Agent': "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"}
@@ -42,13 +42,13 @@ class logger():
         except:
             print("In logger module ,problem with requests")
 
-# Method to delete a sent message 
+# Method to delete a sent message
     def deleteMessage(self,chat_id,message_id):
         #delete the message
         params={
             "chat_id":chat_id,
             "message_id":message_id
-        }        
+        }
         try:
             response=requests.get(f"https://api.telegram.org/bot{self.token}/deleteMessage",headers=headers,params=params)
             if(response.status_code!=202):

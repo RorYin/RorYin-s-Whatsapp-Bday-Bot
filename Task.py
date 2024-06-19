@@ -1,11 +1,8 @@
-import requests
-from setup import *
-from airtablehandler import *
-
-def dotask():
-    ToCheckIfAnyBdayToday()
+from handler import *
 
 
-if __name__ == '__main__':
-    dotask()
-
+log = checkbdays()
+try:
+    print(log)
+except:
+    print("Something went wrong in Task.py")
