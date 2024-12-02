@@ -4,41 +4,41 @@ from PIL import Image, ImageDraw, ImageFont
 
 # Dictionary to store template-specific details
 templates = {
-    # "template1.png": {
-    #     "bounding_box": (45, 380, 810, 140),
-    #     "font_path": "fonts/American Captain.ttf",
-    #     "text_color": (255, 255, 255),
-    #     "max_font_size": 1000,
-    #     "uppercase": False
-    # },
-    # "template2.png": {
-    #     "bounding_box": (310, 380, 790, 140),
-    #     "font_path": "fonts/American Captain.ttf",
-    #     "text_color": (255, 255, 255),
-    #     "max_font_size": 1000,
-    #     "uppercase": False
-    # },
-    # "template3.png": {
-    #     "bounding_box": (280, 440, 880, 140),
-    #     "font_path": "fonts/Holiday.otf",
-    #     "text_color": (77, 75, 76),
-    #     "max_font_size": 1000,
-    #     "uppercase": False
-    # },
-    # "template4.png": {
-    #     "bounding_box": (380, 400, 700, 200),
-    #     "font_path": "fonts/American Captain.ttf",
-    #     "text_color": (30, 31, 30),
-    #     "max_font_size": 150,
-    #     "uppercase": False
-    # },
-    # "template5.png": {
-    #     "bounding_box": (250, 500, 950, 200),
-    #     "font_path": "fonts/Holiday.otf",
-    #     "text_color": (188, 76, 175),
-    #     "max_font_size": 250,
-    #     "uppercase": False
-    # },
+    "template1.png": {
+        "bounding_box": (45, 380, 810, 140),
+        "font_path": "fonts/American Captain.ttf",
+        "text_color": (255, 255, 255),
+        "max_font_size": 1000,
+        "uppercase": False
+    },
+    "template2.png": {
+        "bounding_box": (310, 380, 790, 140),
+        "font_path": "fonts/American Captain.ttf",
+        "text_color": (255, 255, 255),
+        "max_font_size": 1000,
+        "uppercase": False
+    },
+    "template3.png": {
+        "bounding_box": (280, 440, 880, 140),
+        "font_path": "fonts/Holiday.otf",
+        "text_color": (77, 75, 76),
+        "max_font_size": 1000,
+        "uppercase": False
+    },
+    "template4.png": {
+        "bounding_box": (380, 400, 700, 200),
+        "font_path": "fonts/American Captain.ttf",
+        "text_color": (30, 31, 30),
+        "max_font_size": 150,
+        "uppercase": False
+    },
+    "template5.png": {
+        "bounding_box": (250, 500, 950, 200),
+        "font_path": "fonts/Holiday.otf",
+        "text_color": (188, 76, 175),
+        "max_font_size": 250,
+        "uppercase": False
+    },
     "template6.png": {
         "bounding_box": (310, 410, 790, 150),
         "font_path": "fonts/Mistrully.ttf",
