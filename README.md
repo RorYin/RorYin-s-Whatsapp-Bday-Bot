@@ -20,6 +20,7 @@
 # ReleaseNote
 
 > Added Dynamically Name Writing on Bday Cards Feature, instead of just sending the Happy Birthday image, it will now also include the Name in the image itself, making it more attractive.
+> Any number of custom templates can be added, a custom font and color can be configured and the bot will be able to randomly select one of the template and use it.
 
 
 # ToDo for next release
