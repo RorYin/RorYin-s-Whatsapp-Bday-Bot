@@ -19,7 +19,7 @@
 
 # ReleaseNote
 
-> Currently V2.0 bot is deployed on pythonanywhere, can be deployed on render / heroku, or any other platform supporting flask applications.
+> Added Dynamically Name Writing on Bday Cards Feature, instead of just sending the Happy Birthday image, it will now also include the Name in the image itself, making it more attractive.
 
 
 # ToDo for next release
