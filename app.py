@@ -1,9 +1,12 @@
-from flask import Flask, request, redirect, url_for, render_template, flash, jsonify, request, session
+from flask import Flask, request, redirect, url_for, render_template, flash, jsonify, request, session, render_template_string, send_file, abort
 from datetime import timedelta
 import json
 import os
 from setup import *
 from handler import *
+import getpass
+from gencard import  *
+
 
 app = Flask(__name__)
 app.secret_key = key
@@ -24,6 +27,38 @@ if not os.path.exists(DATA_FILE):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/gc')
+def index2():
+    html_content = '''
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Get Username</title>
+        <script>
+            async function fetchUsername() {
+                const response = await fetch('/get-username');
+                const data = await response.json();
+                document.getElementById('username').innerText = data.username;
+            }
+            window.onload = fetchUsername;
+        </script>
+    </head>
+    <body>
+        <h1>User Information</h1>
+        <p>Username: <span id="username">Loading...</span></p>
+    </body>
+    </html>
+    '''
+    return render_template_string(html_content)
+
+@app.route('/get-username', methods=['GET'])
+def get_username():
+    # Simulate getting the username from the client-side script or environment
+    import os
+    username = os.getenv('USERNAME') or os.getenv('USER')
+    return jsonify({'username': username})
 
 @app.route('/login', methods=['POST', "GET"])
 def login():
@@ -67,10 +102,21 @@ def data_entry():
     else:
         return redirect(url_for('login'))
 
+@app.route('/selfcheck')
+def selfcheck():
+    if 'user' in session:
+        card_path = generate_birthday_card("RorYinBoT")
+        resp = SendImgUpload("replace ur actual test message whatsapp group id here",f"./{card_path}","Test Message")
+        return render_template('display_text.html',text=resp)
+    else:
+        return redirect(url_for('login'))
+
 @app.route('/submit', methods=['POST'])
 def submit():
     name = request.form['name']
     bday = request.form['bday']
+    split_vals = bday.split("-")
+    bday = f"{split_vals[0]}-{split_vals[2]}-{split_vals[1]}"
     image_url = request.form.get('image_url', f"{display_image_url}")
     chatid = request.form.get('chatid', f"{default_chatid}")
 
@@ -138,6 +184,29 @@ def send_now():
             return render_template('display_text.html',text=" No Birthdays Today 🙄")
     else:
         return redirect(url_for("login"))
+
+# Define the directory containing the images
+IMAGE_DIRECTORY = "./temp"  # Path to your generated images
+
+@app.route('/download', methods=['GET'])
+def download_image():
+    """
+    Endpoint to download an image specified by 'filename' query parameter.
+    """
+    # Get the filename from the query parameters
+    filename = request.args.get('filename')
+    if not filename:
+        abort(400, description="Filename is required.")
+
+    # Construct the full file path
+    file_path = os.path.join(IMAGE_DIRECTORY, filename)
+
+    # Check if the file exists
+    if not os.path.isfile(file_path):
+        abort(404, description="File not found.")
+
+    # Send the file for download
+    return send_file(file_path, as_attachment=True)
 
 
 if __name__ == '__main__':

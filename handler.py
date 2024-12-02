@@ -5,11 +5,13 @@ import pytz
 from setup import *
 import json
 from greenapiwrapper import *
+from gencard import *
 
 bot=logger(TgBotToken)
-currentdate = datetime.now(pytz.timezone('Asia/Calcutta')).strftime("%m-%d")
+
 
 def checkbdays():
+    currentdate = datetime.now(pytz.timezone('Asia/Calcutta')).strftime("%d-%m")
     with open(DATA_FILE, 'r') as file:
 
         data = json.load(file)
@@ -18,21 +20,20 @@ def checkbdays():
         date_splits = entry['bday'].split("-")
 
         the_entry_bday =f"{date_splits[1]}-{date_splits[2]}"
-        # print(currentdate)
-        # print(the_entry_bday)
+
+        checked_flag = 0
         if currentdate == the_entry_bday:
-            # print(entry)
-            # print(entry['name'])
-            # print(entry['image_url'])
-            # print(entry['chatid'])
 
-            response = SendImgUrl(entry['chatid'],entry['image_url'],f"Happy Birthday {entry['name']} 🎉")
+
+            card_path = generate_birthday_card(entry['name'])
+
+            response = SendImgUpload(entry['chatid'],f"./{card_path}",f"Happy Birthday {entry['name']} 🎉")
             print(response)
-            response = response.json()
 
 
+            checked_flag = 1
             try:
-                if(response['idMessage']!=""):
+                if ("Success" in response):
                     print(datetime.now(pytz.timezone('Asia/Calcutta')))
                     log.append(f"Birthday wish sent for {entry['name']}")
                     bot.sendMsgTo(devTGid,f"Birthday wish sent for {entry['name']}","","")
@@ -43,6 +44,8 @@ def checkbdays():
                 log.append(f"Birthday wish sent was failed to sent for {entry['name']} {e} response = {response}")
                 bot.sendMsgTo(devTGid,f"Birthday wish sent was failed to sent for {entry['name']} {e} response = {response}","","")
 
-    return log
+    else:
+        if(checked_flag == 0):
+            bot.sendMsgTo(devTGid,f"No Birthdays today ","","")
 
-# print(checkbdays())
+    return log
