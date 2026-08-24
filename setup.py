@@ -1,27 +1,13 @@
-from cryptography.fernet import Fernet
+"""Compatibility shim for older imports."""
 
-key = Fernet.generate_key()
+from config import DATA_FILE, get_settings
 
-DATA_FILE = 'data.json'
-
-TgBotToken = "Place ur TG Bot Token here"
-
-devTGid = "Your TG account ID"  #will be used for later implementation of error log in Telegram group as telegram apis are very reliable.
-
-webapppassword = "WebpagePassword"
-#webapp password
-
-display_image_url = "https://telegra.ph/file/c3f382697478e3e9f1887.png"
-# url for the image that will be sent along with the text
-
-default_chatid =   "chatid/groupid of whatsapp" #Get it from greenapi 
-# Whatsapp group chatid where bot should send posts
-
-# greenapi instance id
-InstanceId = "greenapi instance id" 
-
-#greenapi api token instance
-ApiTokenInstance = "greenapi token instance" 
-
-
-
+_settings = get_settings()
+key = _settings["secret_key"]
+TgBotToken = _settings["telegram_bot_token"]
+devTGid = _settings["telegram_log_chat_id"]
+webapppassword = _settings["admin_password"]
+display_image_url = _settings["display_image_url"]
+default_chatid = _settings["default_chatid"]
+InstanceId = _settings["greenapi_instance_id"]
+ApiTokenInstance = _settings["greenapi_api_token"]

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RorYin's WhatsApp Birthday Reminder Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-body">
+    <main class="auth-card">
+        <p class="eyebrow">RorYin · WhatsApp</p>
+        <h1>Birthday Bot</h1>
+        <p class="lede">Sign in to manage people, send wishes, and run daily reminders.</p>
+        {% if error %}
+        <p class="banner error">{{ error }}</p>
+        {% endif %}
+        <form method="POST" action="{{ url_for('login') }}" class="stack">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" autocomplete="current-password" required autofocus>
+            <button type="submit" class="btn primary">Continue</button>
+        </form>
+        <p class="hint">Admin can edit people and run tasks. Superadmin can also change API keys and setup.</p>
+    </main>
+</body>
+</html>

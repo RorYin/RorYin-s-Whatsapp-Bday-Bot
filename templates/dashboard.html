@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RorYin's WhatsApp Birthday Reminder Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-role="{{ role }}">
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">RorYin Birthday Bot</p>
+            <h1>Dashboard</h1>
+        </div>
+        <div class="topbar-actions">
+            <span class="role-pill">{{ role }}</span>
+            <a class="btn ghost" href="{{ url_for('logout') }}">Log out</a>
+        </div>
+    </header>
+
+    <nav class="tabs" role="tablist">
+        <button class="tab active" data-tab="people" type="button">Data</button>
+        <button class="tab" data-tab="actions" type="button">Actions</button>
+        {% if is_superadmin %}
+        <button class="tab" data-tab="settings" type="button">Setup</button>
+        {% endif %}
+    </nav>
+
+    <section id="panel-people" class="panel active">
+        <div class="toolbar">
+            <input id="search" type="search" placeholder="Search name, date, facts, chat id…">
+            <button class="btn primary" id="add-person" type="button">Add person</button>
+        </div>
+        <p class="meta" id="people-count">Loading…</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Birthday</th>
+                        <th>Joined</th>
+                        <th>Chat ID</th>
+                        <th>Facts</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="people-body"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="panel-actions" class="panel">
+        <div class="grid-2">
+            <article class="card">
+                <h2>Run daily task</h2>
+                <p>Checks everyone in <code>data.json</code> for birthdays and work anniversaries today, sends WhatsApp cards to their group, and logs the result to Telegram.</p>
+                <button class="btn primary" id="run-task" type="button">Trigger task</button>
+            </article>
+            <article class="card">
+                <h2>Test WhatsApp API</h2>
+                <p>Generates a sample birthday card for “RorYinBoT” and sends it to the configured test chat using Green API. Use this to confirm the instance is online.</p>
+                <button class="btn" id="test-whatsapp" type="button">Test WhatsApp API</button>
+            </article>
+        </div>
+        <pre id="action-log" class="log" hidden></pre>
+    </section>
+
+    {% if is_superadmin %}
+    <section id="panel-settings" class="panel">
+        <article class="card">
+            <h2>API keys &amp; setup</h2>
+            <p>Only superadmin can change these. Saving asks for confirmation because a wrong token can stop WhatsApp or Telegram logging.</p>
+            <form id="settings-form" class="settings-grid">
+                <label>Admin password
+                    <span class="secret-field">
+                        <input name="admin_password" type="password" autocomplete="off">
+                        <button class="toggle-secret" type="button" aria-label="Show value" title="Show or hide"></button>
+                    </span>
+                </label>
+                <label>Superadmin password
+                    <span class="secret-field">
+                        <input name="superadmin_password" type="password" autocomplete="off">
+                        <button class="toggle-secret" type="button" aria-label="Show value" title="Show or hide"></button>
+                    </span>
+                </label>
+                <label>Flask secret key
+                    <span class="secret-field">
+                        <input name="secret_key" type="password" autocomplete="off">
+                        <button class="toggle-secret" type="button" aria-label="Show value" title="Show or hide"></button>
+                    </span>
+                </label>
+                <label>Timezone<input name="timezone" type="text"></label>
+                <label>Telegram bot token
+                    <span class="secret-field">
+                        <input name="telegram_bot_token" type="password" autocomplete="off">
+                        <button class="toggle-secret" type="button" aria-label="Show value" title="Show or hide"></button>
+                    </span>
+                </label>
+                <label>Telegram log chat ID<input name="telegram_log_chat_id" type="text"></label>
+                <label>Green API instance ID<input name="greenapi_instance_id" type="text"></label>
+                <label>Green API token
+                    <span class="secret-field">
+                        <input name="greenapi_api_token" type="password" autocomplete="off">
+                        <button class="toggle-secret" type="button" aria-label="Show value" title="Show or hide"></button>
+                    </span>
+                </label>
+                <label>Default WhatsApp chat ID<input name="default_chatid" type="text"></label>
+                <label>Test WhatsApp chat ID<input name="test_chatid" type="text"></label>
+                <label>Default image URL<input name="display_image_url" type="text"></label>
+                <label>Work anniversary image filename<input name="work_anniversary_image" type="text" placeholder="file in templates/"></label>
+                <div class="form-actions">
+                    <button class="btn primary" type="submit">Save setup</button>
+                </div>
+            </form>
+        </article>
+    </section>
+    {% endif %}
+
+    <div class="modal" id="confirm-modal" hidden>
+        <div class="modal-card">
+            <h2 id="confirm-title">Confirm</h2>
+            <p id="confirm-body"></p>
+            <div class="form-actions">
+                <button class="btn ghost" id="confirm-cancel" type="button">Cancel</button>
+                <button class="btn danger" id="confirm-ok" type="button">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="person-modal" hidden>
+        <div class="modal-card wide">
+            <h2 id="person-title">Person</h2>
+            <form id="person-form" class="settings-grid">
+                <input type="hidden" name="index" id="person-index">
+                <label>Name<input name="name" required></label>
+                <label>Birthday<input name="bday" type="text" placeholder="dd/mm/yyyy" inputmode="numeric"></label>
+                <label>Joining date<input name="joining_date" type="text" placeholder="dd/mm/yyyy" inputmode="numeric"></label>
+                <label>Chat ID<input name="chatid"></label>
+                <label class="full">Image URL<input name="image_url"></label>
+                <label class="full">Facts / hobbies<textarea name="facts" rows="4"></textarea></label>
+                <p class="hint full">Dates use dd/mm/yyyy. Empty fields are saved as NA.</p>
+                <div class="form-actions full">
+                    <button class="btn ghost" type="button" id="person-cancel">Cancel</button>
+                    <button class="btn primary" type="submit">Save person</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" hidden></div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

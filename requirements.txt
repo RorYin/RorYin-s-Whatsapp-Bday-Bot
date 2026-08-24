@@ -1,6 +1,4 @@
 Flask
 requests
-datetime
-Gunicorn
 pytz
-cryptography
+Pillow

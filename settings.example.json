@@ -1,0 +1,14 @@
+{
+    "admin_password": "change-me-admin",
+    "superadmin_password": "change-me-superadmin",
+    "secret_key": "change-this-flask-secret",
+    "telegram_bot_token": "123456:ABC-your-telegram-bot-token",
+    "telegram_log_chat_id": "-1001234567890",
+    "greenapi_instance_id": "your-greenapi-instance-id",
+    "greenapi_api_token": "your-greenapi-api-token",
+    "default_chatid": "120363XXXXXXXX@g.us",
+    "test_chatid": "120363XXXXXXXX@g.us",
+    "display_image_url": "https://example.com/image.png",
+    "timezone": "Asia/Calcutta",
+    "work_anniversary_image": "happy-work-anniversary-6-600x600.webp"
+}
