@@ -4,3 +4,4 @@ temp/
 .venv/
 venv/
 settings.json
+data.json

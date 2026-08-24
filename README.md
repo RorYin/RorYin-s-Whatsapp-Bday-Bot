@@ -55,7 +55,7 @@ Edit `settings.json`:
 | `timezone` | `Asia/Calcutta` unless you need another zone |
 | `work_anniversary_image` | Filename only; file must live in `templates/` |
 
-4. Keep `data.json` next to `app.py` (or start with `[]`).
+4. The repo ships an empty `data.json` (`[]`). Copy or keep it next to `app.py`. Your real records stay on the server only and should not be committed.
 5. Run:
 
 ```bash
