@@ -11,7 +11,7 @@
 <body data-role="{{ role }}">
     <header class="topbar">
         <div>
-            <p class="eyebrow">RorYin Birthday Bot</p>
+            <p class="eyebrow">RorYin's WhatsApp Birthday Reminder Bot</p>
             <h1>Dashboard</h1>
         </div>
         <div class="topbar-actions">
@@ -35,18 +35,27 @@
         </div>
         <p class="meta" id="people-count">Loading…</p>
         <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Birthday</th>
-                        <th>Joined</th>
-                        <th>Chat ID</th>
-                        <th>Facts</th>
-                        <th></th>
-                    </tr>
-                </thead>
+                <table>
+                    <colgroup>
+                        <col class="col-num">
+                        <col class="col-name">
+                        <col class="col-date">
+                        <col class="col-date">
+                        <col class="col-chat">
+                        <col class="col-facts">
+                        <col class="col-actions">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                            <th>Joined</th>
+                            <th>Chat ID</th>
+                            <th>Facts</th>
+                            <th></th>
+                        </tr>
+                    </thead>
                 <tbody id="people-body"></tbody>
             </table>
         </div>

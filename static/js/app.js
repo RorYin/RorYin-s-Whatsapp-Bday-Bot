@@ -74,14 +74,16 @@ function renderPeople() {
         const tr = document.createElement("tr");
         tr.innerHTML = `
             <td>${index + 1}</td>
-            <td>${escapeHtml(person.name || "")}</td>
+            <td class="cell-name">${escapeHtml(person.name || "")}</td>
             <td>${escapeHtml(bday)}</td>
             <td>${escapeHtml(joined)}</td>
-            <td>${escapeHtml(person.chatid || "")}</td>
+            <td class="cell-chat">${escapeHtml(person.chatid || "")}</td>
             <td class="facts">${escapeHtml(person.facts || "")}</td>
-            <td class="row-actions">
-                <button class="btn" data-edit="${index}" type="button">Edit</button>
-                <button class="btn danger" data-delete="${index}" type="button">Delete</button>
+            <td>
+                <div class="row-actions">
+                    <button class="btn" data-edit="${index}" type="button">Edit</button>
+                    <button class="btn danger" data-delete="${index}" type="button">Delete</button>
+                </div>
             </td>`;
         body.appendChild(tr);
     });
